@@ -7,17 +7,17 @@
 
 ```js
 async generateTimeLink(req: Request, res: Response) {
-        const { dataid } = req.query;
+        const { id } = req.query;
 
         try {
-            const imageData: IData = await ExpiredModel.findById(dataid)
-            const video = imageData.video;
+            const data: IData = await ExpiredModel.findById(dataid)
+            const video = data.video;
             const key = uuidv4();
             const date = Date.now() + 300000; //5 минут
-            const data = new TimeModel({ key, date });
-            const insertedData = await data.save();
+            const timeStamp = new TimeModel({ key, date });
+            const savedTimeData = await timeStamp.save();
             res.status(201).json({
-                link: `${process.env["API"]}/assets/videos/${video}?exp=${insertedData.date}&expkey=${insertedData.key}`,
+                link: `${process.env["API"]}/assets/videos/${video}?exp=${savedTimeData.date}&expkey=${savedTimeData.key}`,
             });
         } catch (e) {
             res.status(404).json({ message: "404 error" });
