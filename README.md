@@ -30,3 +30,5 @@ http://localhost:8080/api/assets/videos/kzjigit.mp4?exp=1663184645286&expkey=ac0
 
 Стэк:
 React, Express, Typescript, MongoDB
+
+Ссылка на YouTube: https://youtu.be/jMYykQijA8k
