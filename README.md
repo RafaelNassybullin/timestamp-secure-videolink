@@ -20,7 +20,7 @@ async generateTimeLink(req: Request, res: Response) {
                 link: `${process.env["API"]}/assets/videos/${video}?exp=${savedTimeData.date}&expkey=${savedTimeData.key}`,
             });
         } catch (e) {
-            res.status(404).json({ message: "404 error" });
+            res.status(404).json({ message: (e as Error).message });
         }
     }
 ```
