@@ -10,7 +10,7 @@ async generateTimeLink(req: Request, res: Response) {
         const { id } = req.query;
 
         try {
-            const data: IData = await ExpiredModel.findById(dataid)
+            const data: IData = await ExpiredModel.findById(id)
             const video = data.video;
             const key = uuidv4();
             const date = Date.now() + 300000; //5 минут
