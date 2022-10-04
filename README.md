@@ -5,6 +5,7 @@
 
 Для эксперимента время жизни ссылки 5 минут. (Можете поставить хоть 24 часа)
 
+
 ```js
 async generateTimeLink(req: Request, res: Response) {
         const { id } = req.query;
